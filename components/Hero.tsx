@@ -1,5 +1,6 @@
 import React from 'react'
 import { Spotlight } from './ui/Spotlight'
+import { TextGenerateEffect } from './ui/TextGenerateEffect'
 
 function Hero() {
   return (
@@ -28,6 +29,13 @@ function Hero() {
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
             Created with Next.js
           </p>
+
+          <TextGenerateEffect
+            words=" Hi! I&apos;m Hosein Yarzade, a front end Developer. "
+            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+          />
+
+
           </div>
         </div>
       </div>
