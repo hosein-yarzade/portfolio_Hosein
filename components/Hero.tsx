@@ -1,6 +1,8 @@
 import React from 'react'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
+import { IconLocation } from '@tabler/icons-react';
+import MagicButton from './MagicButton'
 
 function Hero() {
   return (
@@ -35,7 +37,13 @@ function Hero() {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
-
+          <a href="#about">
+            <MagicButton
+              title="Show my work"
+              icon={<IconLocation />}
+              position="right"
+            />
+          </a>
           </div>
         </div>
       </div>
