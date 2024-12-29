@@ -33,10 +33,13 @@ function Hero() {
           </p>
 
           <TextGenerateEffect
-            words=" Hi! I&apos;m Hosein Yarzade, a front end Developer. "
+            words=' Hi ! I&apos;m Hosein Yarzade'
+            className="text-center md:tracking-wider mb-4 text-sm text-[50px] md:text-5xl lg:text-6xl"
+          />
+          <TextGenerateEffect
+            words=' <p> Front end developer </p>'
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
-
           <a href="#about">
             <MagicButton
               title="Show my work"
