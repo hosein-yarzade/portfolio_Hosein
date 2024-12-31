@@ -1,17 +1,14 @@
 "use client"
 import { useState } from "react";
-import { IoCopyOutline } from "react-icons/io5";
+import { IconCopyright } from '@tabler/icons-react';
 
 // Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
 
 
 import { BackgroundGradientAnimation } from "./GradientBg";
-import GridGlobe from "./GridGlobe";
-import animationData from "@/data/confetti.json";
-import MagicButton from "../MagicButton";
+import  {ShootingStars}  from "./ShootingStars";
 
 export const BentoGrid = ({
   className,
@@ -54,18 +51,10 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const rightLists = [ "NextJS", ];
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   const handleCopy = () => {
     const text = "hsu@jsmastery.pro";
@@ -118,7 +107,10 @@ export const BentoGridItem = ({
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
         )}
-
+{id === 6 && (
+          // add background animation , remove the p tag
+          <ShootingStars />
+        )}
         <div
           className={cn(
             titleClassName,
@@ -138,61 +130,7 @@ export const BentoGridItem = ({
           </div>
 
           {/* for the github 3d globe */}
-          {id === 2 && <GridGlobe />}
-
-          {/* Tech stack list div */}
-          {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              {/* tech stack lists */}
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                {leftLists.map((item, i) => (
-                  <span
-                    key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                  >
-                    {item}
-                  </span>
-                ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
-              </div>
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
-                {rightLists.map((item, i) => (
-                  <span
-                    key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          {id === 6 && (
-            <div className="mt-5 relative">
-              {/* button border magic from tailwind css buttons  */}
-              {/* add rounded-md h-8 md:h-8, remove rounded-full */}
-              {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
-              {/* add handleCopy() for the copy the text */}
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
-
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
-          )}
+         
         </div>
       </div>
     </div>
